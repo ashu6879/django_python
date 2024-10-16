@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Item List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Items</h1>
+        <a href="{% url 'item_create' %}">Create New Item</a>
+        <ul>
+            {% for item in items %}
+                <li>
+                    {{ item.name }} - {{ item.description }}
+                    <a href="{% url 'item_delete' item.id %}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

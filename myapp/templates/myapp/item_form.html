@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Item</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Create Item</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+        <a href="{% url 'item_list' %}">Cancel</a>
+    </div>
+</body>
+</html>
